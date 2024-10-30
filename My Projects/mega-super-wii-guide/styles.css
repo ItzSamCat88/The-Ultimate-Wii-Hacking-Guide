@@ -1,0 +1,201 @@
+/* styles.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: linear-gradient(to bottom right, #1c1c1c, #3a3a3a);
+    color: #f9f9f9;
+    padding: 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #4db8ff;
+    text-shadow: 1px 1px 5px #333;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #cccccc;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+nav ul li a {
+    color: #4db8ff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+section {
+    padding: 20px 0;
+    border-bottom: 1px solid #4db8ff;
+    animation: fadeInUp 0.6s ease-in-out;
+}
+
+h2 {
+    font-size: 2em;
+    color: #4db8ff;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #66c2ff;
+    margin-bottom: 8px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    padding-left: 10px;
+    list-style: square;
+    color: #b3e0ff;
+}
+
+ul li, ol li {
+    margin: 5px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #cccccc;
+    font-size: 0.9em;
+    animation: fadeIn 1s ease-in-out;
+}
+
+footer p {
+    color: #666;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Links hover animations */
+a {
+    position: relative;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4db8ff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Button-like animations for links in nav */
+nav ul li a {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: #4db8ff;
+    border-radius: 50%;
+    transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+nav ul li a:hover::before {
+    width: 0;
+    height: 0;
+    opacity: 1;
+}
+
+nav ul li a span {
+    position: relative;
+    z-index: 1;
+}
+
